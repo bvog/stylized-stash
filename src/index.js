@@ -20,7 +20,8 @@ import './index.css';
 import { createRoot } from "react-dom/client"
 import "./index.css"
 import { BrowserRouter } from "react-router-dom"
-import { Stash } from "./components/routes/Stash"
+import { Stash } from './components/routes/Stash';
+
 
 
 const container = document.getElementById("root")

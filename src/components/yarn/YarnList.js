@@ -8,7 +8,7 @@ export const YarnList = () => {
 
     useEffect (
         () => {
-            fetch(`http://localhost:8088/yarn`)
+            fetch(`http://localhost:8088/yarns?_expand=color&_expand=brandName&_expand=type`)
                 .then(response => response.json())
                 .then((yarnArray) => {
                     setYarns(yarnArray)
@@ -21,12 +21,15 @@ export const YarnList = () => {
     return<>
         <h2>My Inventory</h2>
 
-        <article classname="list_of_yarn">
+        <article className="list_of_yarn">
             {
                 yarns.map(
                     (yarn) => {
                         return <section className="individual_yarn">
                             <div>Price: ${yarn.price}</div>
+                            <div>Color:{yarn.color.color}</div>
+                            <div>Type::{yarn.type.type}</div>
+                            <div>Brand Name:{yarn.brandName.brandName}</div>
                         </section>
                     }
                 )

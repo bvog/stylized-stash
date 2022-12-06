@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const YarnAddForm = () => {
@@ -9,7 +9,7 @@ export const YarnAddForm = () => {
     const [yarn, update] = useState({
         brandNameId: 0, //These properties are updated when the form is filled out by the customer.  These are default values set up in the initial state.
         typeId: 0,
-        yardAmount: 0, //These are properties for each form field QUESTION: HOW DO I GET PROPERITES FOR SECONDARY KEYS??
+        yardAmount: 0, //These are properties for each form field QUESTION: HOW DO I GET PROPERITES FOR SECONDARY KEYS - do not need secondary keys here - want all primary keys.
         colorId: 0,
         notes: "",
         price: 0,
@@ -18,13 +18,41 @@ export const YarnAddForm = () => {
     })
     /*
         TODO: Use the useNavigation() hook so you can redirect
-        the user to the ticket list
+        the user to the ticket list QUESTION: DO I NEED THIS???/WHAT DOES THIS DO??
     */
-    const navigate = useNavigate()
-    const currentYarnUser = localStorage.getItem("yarn_user")
-    const yarnUserObject = JSON.parse(currentYarnUser)
 
-    const handleSaveButtonClick = (event) => {
+    const [brandNames, setBrandNames] = useState([])
+    const [types, setTypes] = useState([])
+    const [colors, setColors] = useState([])
+ 
+
+    const navigate = useNavigate() //Works like a refresh - allows you to navigate back to another page
+    // const currentYarnUser = localStorage.getItem("yarn_user")
+    // const yarnUserObject = JSON.parse(currentYarnUser)
+
+
+    useEffect(() => {
+        fetch('http://localhost:8088/brandNames')
+          .then((response) => response.json())
+          .then((brandNamesData) => {
+            setBrandNames(brandNamesData)
+          })
+    
+        fetch('http://localhost:8088/types')
+          .then((response) => response.json())
+          .then((typesData) => {
+            setTypes(typesData)
+          })
+
+          fetch('http://localhost:8088/colors')
+          .then((response) => response.json())
+          .then((colorsData) => {
+            setColors(colorsData)
+          })
+      }, [])
+
+
+    const handleSaveButtonClick = (event) => { //function tied to button in return below
         event.preventDefault()
 
         // TODO: Create the object to be saved to the API
@@ -34,14 +62,20 @@ export const YarnAddForm = () => {
     "emergency": true,
     "dateCompleted": ""
 */
-        const yarnToSendToAPI = {
-            userId: yarnUserObject.id,
-            description: yarn.description,
+        const yarnToSendToAPI = {  //QUESTION: IS THIS CORRECT??
+            brandNameId: yarn.brandName,
+            typeId: yarn.type,
+            yardAmount: yarn.yardAmount,
+            colorId: yarn.color,
+            notes: yarn.notes,
+            price: yarn.price,
+            img: yarn.img
+           
             
         }
         // TODO: Perform the fetch() to POST the object to the API
 
-        return fetch('http://localhost:8088/serviceTickets', { //URL sending post(newly created object) to
+        return fetch('http://localhost:8088/yarns', { //URL sending post(newly created object) to
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -50,52 +84,63 @@ export const YarnAddForm = () => {
         }) 
             .then(response => response.json())
             .then(() => { //Directing user back to ticket list to see new ticket that has been created
-                navigate("/tickets")
+                navigate("/inventory") //navigates you back to inventory page and automatically refreshes screen so don't have to press refresh
             })
     }
 
     return ( //Two form fields, one for description and a checkbox for emergencies.  Each w/in a <fieldset></fieldset>
         <form className="addYarnForm">
             <h2 className="addYarnForm__title">Add to Stash!</h2>
-            <fieldset> 
+
+            <fieldset>
                 <div className="form-group">
-                    <label htmlFor="brandName">Brand Name:</label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Brand Name"
-                        value={yarn.brandName} //QUESTION: WHAT IS THE KEY/VALUE PAIR NEEDED HERE??
-                        onChange={
-                            (evt) => {
-                                const copy = {...yarn} //Created copy of existing state.
-                                copy.brandName =  evt.target.value//QUESTION: WHAT KEY/VALUE PAIR IS NEEDED HERE?? Modifying copy made in above line.  New value will be what is typed in form - whatever is currently in input field.
-                                update(copy) //Passing copy to be the new state.
-                            }
+                <div>Brand Name: </div>
+                     {brandNames.map((brandNameObj) => {
+                return (
+                    <div key={brandNameObj.id} className="radio">
+                        <label>
+                         <input
+                            type="radio"
+                            value={brandNameObj.id}
+                            checked={yarn.brandNameId === brandNameObj.id}
+                            onChange={(event) => {
+                            const copy = { ...yarn }
+                            copy.brandNameId = parseInt(event.target.value)
+                            update(copy)
+                    }}
+                  />
+                  {brandNameObj.brandName}
+                </label>
+              </div>
+            )
+          })}
+        </div>
+      </fieldset>
 
-                        } />
-                </div>
-            </fieldset>
-
-            <fieldset> 
+      <fieldset>
                 <div className="form-group">
-                    <label htmlFor="type">Type:</label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Type"
-                        value={yarn.type} //QUESTION: WHAT IS THE KEY/VALUE PAIR NEEDED HERE??
-                        onChange={
-                            (evt) => {
-                                const copy = {...yarn} //Created copy of existing state.
-                                copy.type =  evt.target.value//QUESTION: WHAT KEY/VALUE PAIR IS NEEDED HERE?? Modifying copy made in above line.  New value will be what is typed in form - whatever is currently in input field.
-                                update(copy) //Passing copy to be the new state.
-                            }
-
-                        } />
-                </div>
-            </fieldset>
+                <div>Type: </div>
+                     {types.map((typeObj) => {
+                return (
+                    <div key={typeObj.id} className="radio">
+                        <label>
+                         <input
+                            type="radio"
+                            value={typeObj.id}
+                            checked={yarn.typeId === typeObj.id}
+                            onChange={(event) => {
+                            const copy = { ...yarn }
+                            copy.typeId = parseInt(event.target.value)
+                            update(copy)
+                    }}
+                  />
+                  {typeObj.type}
+                </label>
+              </div>
+            )
+          })}
+        </div>
+      </fieldset>
 
             <fieldset> 
                 <div className="form-group">
@@ -117,25 +162,30 @@ export const YarnAddForm = () => {
                 </div>
             </fieldset>
 
-            <fieldset> 
+            <fieldset>
                 <div className="form-group">
-                    <label htmlFor="color">Color:</label>
-                    <input
-                        required autoFocus
-                        type="text" //QUESTION: HOW DO I MAKE THIS A DROP DOWN MENU??
-                        className="form-control"
-                        placeholder="Color"
-                        value={yarn.color} //QUESTION: WHAT IS THE KEY/VALUE PAIR NEEDED HERE??
-                        onChange={
-                            (evt) => {
-                                const copy = {...yarn} //Created copy of existing state.
-                                copy.color =  evt.target.value//QUESTION: WHAT KEY/VALUE PAIR IS NEEDED HERE?? Modifying copy made in above line.  New value will be what is typed in form - whatever is currently in input field.
-                                update(copy) //Passing copy to be the new state.
-                            }
-
-                        } />
-                </div>
-            </fieldset>
+                <div>Color: </div>
+                     {colors.map((colorObj) => {
+                return (
+                    <div key={colorObj.id} className="radio">
+                        <label>
+                         <input
+                            type="radio"
+                            value={colorObj.id}
+                            checked={yarn.colorId === colorObj.id}
+                            onChange={(event) => {
+                            const copy = { ...yarn }
+                            copy.colorId = parseInt(event.target.value)
+                            update(copy)
+                    }}
+                  />
+                  {colorObj.color}
+                </label>
+              </div>
+            )
+          })}
+        </div>
+      </fieldset>
             
             <fieldset> 
                 <div className="form-group">
@@ -206,3 +256,29 @@ export const YarnAddForm = () => {
         </form>
     )
 }
+
+
+{/* <fieldset>
+        <div className="form-group">
+          <div>Season: </div>
+          {seasons.map((seasonObj) => {
+            return (
+              <div key={seasonObj.id} className="radio">
+                <label>
+                  <input
+                    type="radio"
+                    value={seasonObj.id}
+                    checked={userChoices.seasonId === seasonObj.id}
+                    onChange={(event) => {
+                      const copy = { ...userChoices }
+                      copy.seasonId = parseInt(event.target.value)
+                      setUserChoices(copy)
+                    }}
+                  />
+                  {seasonObj.name}
+                </label>
+              </div>
+            )
+          })}
+        </div>
+      </fieldset> */}
