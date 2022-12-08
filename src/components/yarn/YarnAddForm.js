@@ -63,10 +63,10 @@ export const YarnAddForm = () => {
     "dateCompleted": ""
 */
         const yarnToSendToAPI = {  //QUESTION: IS THIS CORRECT??
-            brandNameId: yarn.brandName,
-            typeId: yarn.type,
+            brandNameId: yarn.brandNameId,
+            typeId: yarn.typeId,
             yardAmount: yarn.yardAmount,
-            colorId: yarn.color,
+            colorId: yarn.colorId,
             notes: yarn.notes,
             price: yarn.price,
             img: yarn.img
@@ -92,7 +92,33 @@ export const YarnAddForm = () => {
         <form className="addYarnForm">
             <h2 className="addYarnForm__title">Add to Stash!</h2>
 
-            <fieldset>
+            <label htmlFor="brandName">Brand Name: </label>
+                <select
+                onChange={(event) => {//On change, fires event which creates copy of yarn.  Copy. brandName Id = event.target.value which is brandNameId.  So, New yarn.brandNameId is now equal to the id that was selected 
+                            const copy = { ...yarn }
+                            copy.brandNameId = parseInt(event.target.value)
+                            update(copy)}}>
+                    <option value={0} type="select" id="brandNameId" className="form-control" required></option> 
+                        {
+                        brandNames.map((brandName) => <option key={`brandName--${brandName.id}`} value={brandName.id}>{brandName.brandName}</option>) //
+                        }
+                </select>
+
+
+                <label htmlFor="brandName">Type: </label>
+                <select
+                onChange={(event) => {//On change, fires event which creates copy of yarn.  Copy.brandNameId = event.target.value which is brandNameId.  So, New yarn.brandNameId is now equal to the id that the customer selected 
+                            const copy = { ...yarn }
+                            copy.typeId = parseInt(event.target.value)
+                            update(copy)}}>
+                    <option value={0} type="select" id="typeId" className="form-control" required></option> 
+                        {
+                        types.map((type) => <option key={`type--${type.id}`} value={type.id}>{type.type}</option>)
+                        }
+                </select>
+
+
+            {/* <fieldset>
                 <div className="form-group">
                 <div>Brand Name: </div>
                      {brandNames.map((brandNameObj) => {
@@ -115,9 +141,9 @@ export const YarnAddForm = () => {
             )
           })}
         </div>
-      </fieldset>
+      </fieldset> */}
 
-      <fieldset>
+      {/* <fieldset>
                 <div className="form-group">
                 <div>Type: </div>
                      {types.map((typeObj) => {
@@ -140,7 +166,7 @@ export const YarnAddForm = () => {
             )
           })}
         </div>
-      </fieldset>
+      </fieldset> */}
 
             <fieldset> 
                 <div className="form-group">
@@ -162,7 +188,19 @@ export const YarnAddForm = () => {
                 </div>
             </fieldset>
 
-            <fieldset>
+            <label htmlFor="color">Color: </label>
+                <select
+                onChange={(event) => {//On change, fires event which creates copy of yarn.  Copy.brandNameId = event.target.value which is brandNameId.  So, New yarn.brandNameId is now equal to the id that the customer selected 
+                            const copy = { ...yarn }
+                            copy.colorId = parseInt(event.target.value)
+                            update(copy)}}>
+                    <option value={0} type="select" id="colorId" className="form-control" required></option> 
+                        {
+                        colors.map((color) => <option key={`color--${color.id}`} value={color.id}>{color.color}</option>)
+                        }
+                </select>
+
+            {/* <fieldset>
                 <div className="form-group">
                 <div>Color: </div>
                      {colors.map((colorObj) => {
@@ -185,7 +223,7 @@ export const YarnAddForm = () => {
             )
           })}
         </div>
-      </fieldset>
+      </fieldset> */}
             
             <fieldset> 
                 <div className="form-group">
@@ -247,6 +285,10 @@ export const YarnAddForm = () => {
                 </div>
             </fieldset>
 
+<input type="file"
+  onClick={(event) => {
+    console.log(event)
+  }} />
 
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} //To invoke the handleSaveButtonClick function must pass clickEvent - do this because event was passed to function above.
@@ -282,3 +324,29 @@ export const YarnAddForm = () => {
           })}
         </div>
       </fieldset> */}
+
+//What I had before I changed it to drop down menu:
+    //   <fieldset>
+    //             <div className="form-group">
+    //             <div>Brand Name: </div>
+    //                  {brandNames.map((brandNameObj) => {
+    //             return (
+    //                 <div key={brandNameObj.id} className="radio">
+    //                     <label>
+    //                      <input
+    //                         type="radio"
+    //                         value={brandNameObj.id}
+    //                         checked={yarn.brandNameId === brandNameObj.id}
+    //                         onChange={(event) => {
+    //                         const copy = { ...yarn }
+    //                         copy.brandNameId = parseInt(event.target.value)
+    //                         update(copy)
+    //                 }}
+    //               />
+    //               {brandNameObj.brandName}
+    //             </label>
+    //           </div>
+    //         )
+    //       })}
+    //     </div>
+    //   </fieldset>

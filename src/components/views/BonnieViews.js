@@ -1,6 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { YarnList } from "../yarn/YarnList"
 import { YarnAddForm } from "../yarn/YarnAddForm"
+import { YarnEditForm } from "../yarn/YarnEditForm"
 
 
 
@@ -11,8 +12,6 @@ export const BonnieViews = () => {
         <Routes>
             <Route path="/" element={
                 <>
-                  
-                  
                   <Outlet /> 
                 </>
             }>
@@ -20,8 +19,7 @@ export const BonnieViews = () => {
 
                 <Route path="inventory" element={ <YarnList/> } />
 
-
-                {/* <Route path="update" element={ <YarnEditForm /> } />                 */}
+                <Route path="inventory/update/:yarnId" element={ <YarnEditForm /> } />                
                 
             </Route>
         </Routes>
@@ -30,6 +28,6 @@ export const BonnieViews = () => {
 
 //Outlet stops default default is whatever is on page load - outlet allows child routes to inherit route path
 
-// "/" allos for multiple pages 8088/ takes you to homepage 
+// "/" allows for multiple pages 8088/ takes you to homepage 
 
 // can put tagline, title, etc. here - it will appear on every single page.  Must put above Outlet

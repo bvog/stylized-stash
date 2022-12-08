@@ -14,6 +14,10 @@ export const BonnieNav = () => {
                 <Link className="navbar__link" to="/create">Add to Stash</Link>
             </li>
 
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/update">Update Stash</Link>
+            </li>
+
             
 
 
