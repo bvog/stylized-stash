@@ -64,6 +64,7 @@ export const YarnAddForm = () => {
 */
         const yarnToSendToAPI = {  //QUESTION: IS THIS CORRECT??
             brandNameId: yarn.brandNameId,
+            name: yarn.name,
             typeId: yarn.typeId,
             yardAmount: yarn.yardAmount,
             colorId: yarn.colorId,
@@ -104,8 +105,28 @@ export const YarnAddForm = () => {
                         }
                 </select>
 
+                <fieldset> 
+                <div className="form-group">
+                    <label htmlFor="name">Name:</label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Name"
+                        value={yarn.name} //QUESTION: WHAT IS THE KEY/VALUE PAIR NEEDED HERE??
+                        onChange={
+                            (evt) => {
+                                const copy = {...yarn} //Created copy of existing state.
+                                copy.name =  evt.target.value//QUESTION: WHAT KEY/VALUE PAIR IS NEEDED HERE?? Modifying copy made in above line.  New value will be what is typed in form - whatever is currently in input field.
+                                update(copy) //Passing copy to be the new state.
+                            }
 
-                <label htmlFor="brandName">Type: </label>
+                        } />
+                </div>
+            </fieldset>
+
+
+                <label htmlFor="type">Type: </label>
                 <select
                 onChange={(event) => {//On change, fires event which creates copy of yarn.  Copy.brandNameId = event.target.value which is brandNameId.  So, New yarn.brandNameId is now equal to the id that the customer selected 
                             const copy = { ...yarn }
@@ -200,31 +221,7 @@ export const YarnAddForm = () => {
                         }
                 </select>
 
-            {/* <fieldset>
-                <div className="form-group">
-                <div>Color: </div>
-                     {colors.map((colorObj) => {
-                return (
-                    <div key={colorObj.id} className="radio">
-                        <label>
-                         <input
-                            type="radio"
-                            value={colorObj.id}
-                            checked={yarn.colorId === colorObj.id}
-                            onChange={(event) => {
-                            const copy = { ...yarn }
-                            copy.colorId = parseInt(event.target.value)
-                            update(copy)
-                    }}
-                  />
-                  {colorObj.color}
-                </label>
-              </div>
-            )
-          })}
-        </div>
-      </fieldset> */}
-            
+                       
             <fieldset> 
                 <div className="form-group">
                     <label htmlFor="price">Price:</label>
@@ -285,11 +282,6 @@ export const YarnAddForm = () => {
                 </div>
             </fieldset>
 
-<input type="file"
-  onClick={(event) => {
-    console.log(event)
-  }} />
-
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} //To invoke the handleSaveButtonClick function must pass clickEvent - do this because event was passed to function above.
                 className="btn btn-primary">
@@ -298,6 +290,12 @@ export const YarnAddForm = () => {
         </form>
     )
 }
+
+//File button to add picture by chooseing a file - can't get it to add to API
+{/* <input type="file"
+  onClick={(event) => {
+    console.log(event)
+  }} /> */}
 
 
 {/* <fieldset>
@@ -350,3 +348,28 @@ export const YarnAddForm = () => {
     //       })}
     //     </div>
     //   </fieldset>
+
+    {/* <fieldset>
+                <div className="form-group">
+                <div>Color: </div>
+                     {colors.map((colorObj) => {
+                return (
+                    <div key={colorObj.id} className="radio">
+                        <label>
+                         <input
+                            type="radio"
+                            value={colorObj.id}
+                            checked={yarn.colorId === colorObj.id}
+                            onChange={(event) => {
+                            const copy = { ...yarn }
+                            copy.colorId = parseInt(event.target.value)
+                            update(copy)
+                    }}
+                  />
+                  {colorObj.color}
+                </label>
+              </div>
+            )
+          })}
+        </div>
+      </fieldset> */}
