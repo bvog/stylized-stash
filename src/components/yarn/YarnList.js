@@ -30,14 +30,17 @@ export const YarnList = () => {
                 yarns.map(
                     (yarn) => {
                         return <section className="individual_yarn">
-                            <div>Price: ${yarn.price}</div>
-                            <div>Color: {yarn.color.color}</div>
-                            <div>Type: {yarn.type.type}</div>
                             <div>Brand Name: {yarn.brandName.brandName}</div>
+                            <div>Name: {yarn.name}</div>
+                            <div>Type: {yarn.type.type}</div>
+                            <div>Color: {yarn.color.color}</div>
+                            <div>Yard Amount: {yarn.yardAmount}</div>
+                            <div>Price: ${yarn.price}</div>
+                            <div>Notes: {yarn.notes}</div>                         
                             <div className="individual_picture" key={yarn.id}>                             
                             <Link 
                                 className="navbar__link"
-                                to={`/update/${yarn.id}`}>
+                                to={`update/${yarn.id}`}>
                                 <img
                                     src={yarn.img}
                                     //alt= "Picture of spool of yarn"

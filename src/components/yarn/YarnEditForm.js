@@ -113,6 +113,26 @@ export const YarnEditForm = () => {
             </div>
         </fieldset>
 
+        <fieldset> 
+                <div className="form-group">
+                    <label htmlFor="name">Name:</label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Name"
+                        value={yarn.name} //QUESTION: WHAT IS THE KEY/VALUE PAIR NEEDED HERE??
+                        onChange={
+                            (evt) => {
+                                const copy = {...yarn} //Created copy of existing state.
+                                copy.name =  evt.target.value//QUESTION: WHAT KEY/VALUE PAIR IS NEEDED HERE?? Modifying copy made in above line.  New value will be what is typed in form - whatever is currently in input field.
+                                setEditYarn(copy) //Passing copy to be the new state.
+                            }
+
+                        } />
+                </div>
+            </fieldset>
+
         <fieldset>
             <div className="form-group">
                 <label htmlFor="type">Type:</label>

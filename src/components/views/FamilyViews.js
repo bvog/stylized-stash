@@ -8,13 +8,16 @@ export const FamilyViews = () => {
         <Routes>
             <Route path="/" element={
                 <>
-                  <YarnList />
-
-                    <Outlet />
+                  <Outlet />
                 </>
-            }>              
+            }> 
+
+                <Route path="inventory" element={ <YarnList/> } />
+             
                 
             </Route>
         </Routes>
     )
 }
+
+{/* <YarnList /> */}
