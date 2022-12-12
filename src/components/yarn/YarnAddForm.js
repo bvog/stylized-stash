@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import  './Yarn.css'
 
 export const YarnAddForm = () => {
     /*
@@ -91,9 +92,11 @@ export const YarnAddForm = () => {
 
     return ( //Two form fields, one for description and a checkbox for emergencies.  Each w/in a <fieldset></fieldset>
         <form className="addYarnForm">
-            <h2 className="addYarnForm__title">Add to Stash!</h2>
+            <h2 className="addYarnForm__title">Add to my Stash!</h2>
 
-            <label htmlFor="brandName">Brand Name: </label>
+          <fieldset>
+              <div className="form-group">
+                <label htmlFor="brandName">Brand Name:   </label>
                 <select
                 onChange={(event) => {//On change, fires event which creates copy of yarn.  Copy. brandName Id = event.target.value which is brandNameId.  So, New yarn.brandNameId is now equal to the id that was selected 
                             const copy = { ...yarn }
@@ -104,15 +107,17 @@ export const YarnAddForm = () => {
                         brandNames.map((brandName) => <option key={`brandName--${brandName.id}`} value={brandName.id}>{brandName.brandName}</option>) //
                         }
                 </select>
+              </div>
+          </fieldset>
 
-                <fieldset> 
+              <fieldset> 
                 <div className="form-group">
-                    <label htmlFor="name">Name:</label>
+                    <label htmlFor="name">Name:   </label>
                     <input
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Name"
+                        placeholder=""
                         value={yarn.name} //QUESTION: WHAT IS THE KEY/VALUE PAIR NEEDED HERE??
                         onChange={
                             (evt) => {
@@ -126,7 +131,10 @@ export const YarnAddForm = () => {
             </fieldset>
 
 
-                <label htmlFor="type">Type: </label>
+            <fieldset>
+              <div className="form-group">
+
+                <label htmlFor="type">Type:   </label>
                 <select
                 onChange={(event) => {//On change, fires event which creates copy of yarn.  Copy.brandNameId = event.target.value which is brandNameId.  So, New yarn.brandNameId is now equal to the id that the customer selected 
                             const copy = { ...yarn }
@@ -137,6 +145,8 @@ export const YarnAddForm = () => {
                         types.map((type) => <option key={`type--${type.id}`} value={type.id}>{type.type}</option>)
                         }
                 </select>
+              </div>
+            </fieldset>
 
 
             {/* <fieldset>
@@ -191,12 +201,12 @@ export const YarnAddForm = () => {
 
             <fieldset> 
                 <div className="form-group">
-                    <label htmlFor="yardAmount">Amount in Yards:</label>
+                    <label htmlFor="yardAmount">Amount in Yards:   </label>
                     <input
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Yard Amount"
+                        placeholder=""
                         value={yarn.yardAmount} //QUESTION: WHAT IS THE KEY/VALUE PAIR NEEDED HERE??
                         onChange={
                             (evt) => {
@@ -209,7 +219,10 @@ export const YarnAddForm = () => {
                 </div>
             </fieldset>
 
-            <label htmlFor="color">Color: </label>
+            
+            <fieldset>
+              <div className="form-group">
+                <label htmlFor="color">Color:   </label>
                 <select
                 onChange={(event) => {//On change, fires event which creates copy of yarn.  Copy.brandNameId = event.target.value which is brandNameId.  So, New yarn.brandNameId is now equal to the id that the customer selected 
                             const copy = { ...yarn }
@@ -220,16 +233,18 @@ export const YarnAddForm = () => {
                         colors.map((color) => <option key={`color--${color.id}`} value={color.id}>{color.color}</option>)
                         }
                 </select>
+              </div>
+            </fieldset>
 
                        
             <fieldset> 
                 <div className="form-group">
-                    <label htmlFor="price">Price:</label>
+                    <label htmlFor="price">Price:   </label>
                     <input
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Price"
+                        placeholder=""
                         value={yarn.price} //QUESTION: WHAT IS THE KEY/VALUE PAIR NEEDED HERE??
                         onChange={
                             (evt) => {
@@ -244,12 +259,12 @@ export const YarnAddForm = () => {
 
             <fieldset> 
                 <div className="form-group">
-                    <label htmlFor="notes">Notes:</label>
+                    <label htmlFor="notes">Notes:   </label>
                     <input
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Notes"
+                        placeholder=""
                         value={yarn.notes} //QUESTION: WHAT IS THE KEY/VALUE PAIR NEEDED HERE??
                         onChange={
                             (evt) => {
@@ -264,12 +279,12 @@ export const YarnAddForm = () => {
 
             <fieldset> 
                 <div className="form-group">
-                    <label htmlFor="picture">Picture</label>
+                    <label htmlFor="picture">Picture:   </label>
                     <input
                         required autoFocus
                         type="img" //QUESTION: WHAT TYPE IS A PICTURE
                         className="form-control"
-                        placeholder="Picture"
+                        placeholder=""
                         value={yarn.img} //QUESTION: WHAT IS THE KEY/VALUE PAIR NEEDED HERE??
                         onChange={
                             (evt) => {
@@ -284,7 +299,7 @@ export const YarnAddForm = () => {
 
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} //To invoke the handleSaveButtonClick function must pass clickEvent - do this because event was passed to function above.
-                className="btn btn-primary">
+                className="btn-add">
                 Add to Stash!
             </button>
         </form>

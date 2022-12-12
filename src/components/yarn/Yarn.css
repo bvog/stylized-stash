@@ -1,6 +1,150 @@
+/* Import the google web fonts you want to use */
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap") */
+
+@import url("https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap");
+
+/*Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+  color: #404040;
+  font-family: "Comfortaa", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+body {
+    padding: 0 3rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Patua One", serif;
+  letter-spacing: 2px;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+.title--main {
+  margin-block-end: 0;
+}
+
+
 .picture-img{
-    height: 20rem;
-    width: 20rem;
+    height: 17rem;
+    width: 17rem;
     margin: 1rem;
     box-shadow: 4px 3px 4px grey;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  fieldset {
+    width: 50%;
+    margin: 1rem;
+    border-radius: 9px;
+    box-shadow: 2px 2px 5px -1px grey;
+    border-style: none;
+    background-color: rgb(193, 209, 193);
+    font-size: 1.10rem;
+    padding: 1rem;
+  }
+
+  /* .form-group {
+    margin: .5rem
+  } */
+
+  form input {
+    font-size: 1rem;
+    padding: 0.10rem;
+    border-radius: 8px;
+    border-style: solid ;
+  }
+
+  form select {
+    font-size: 1rem;
+    padding: 0.10rem;
+    border-radius: 8px;
+    border-style: solid;
+  }
+
+  .btn-primary {
+    align-self: flex;
+    margin-right: 25rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 4px -1px grey;
+    background-color: rgb(88, 99, 88);
+    border: none;
+    color: white;
+    border-radius: 7px;
+  }
+
+  .btn-delete {
+    align-self: flex;
+    margin-right: -25rem;
+    margin-top: 5px;
+    font-size: 1rem;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 4px -1px grey;
+    background-color: rgb(223, 69, 69);
+    border: none;
+    color: white;
+    border-radius: 7px;
+
+  }
+
+  .btn-add {
+    align-self: flex;
+    margin-right: 3rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 4px -1px grey;
+    background-color: rgb(88, 99, 88);
+    border: none;
+    color: white;
+    border-radius: 7px;
+  }
+
+  .editForm__title {
+    color: rgb(51, 87, 51);
+    /* font-family: "Comfortaa", Arial, sans-serif; */
+    
+    font-family: "La Belle Aurore";
+    font-size: 60px
+  }
+
+  .addYarnForm__title {
+    color: rgb(51, 87, 51);
+    font-size: 60px
+  }
+
+  .addYarnForm__title {
+    color: rgb(51, 87, 51);    
+    font-family: "La Belle Aurore";
+    font-size: 60px
+  }
+
+  .yarnList_title {
+    align-self: center;
+    color: rgb(51, 87, 51);    
+    font-family: "La Belle Aurore";
+    font-size: 60px
+  }
+
+  .list_of_yarn {
+    flex-wrap: wrap;
+  }
+

@@ -23,13 +23,14 @@ export const YarnList = () => {
 //Questions for return: how to I get to brandName, type and color?  Do I need to embed?  How? - I'm getting an emtpy table
 //Do I want to add a picture here?  How?
     return<>
-        <h2>My Inventory</h2>
-
+      <div className="addTitle">
+        <h2 className="yarnList_title">My Stash!</h2>
+      </div>
         <article className="list_of_yarn">
             {
                 yarns.map(
                     (yarn) => {
-                        return <section className="individual_yarn">
+                        return <section className="individual_yarn" key={yarn.id}>
                             <div>Brand Name: {yarn.brandName.brandName}</div>
                             <div>Name: {yarn.name}</div>
                             <div>Type: {yarn.type.type}</div>

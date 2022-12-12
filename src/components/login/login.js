@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
-import "./Login.css"
+import './Login.css'
+// import background from "./photos/white_yarn_login_background.jpg"
+
 
 export const Login = () => {
     const [email, setEmail] = useState("bonnievog@gmail.com") 
@@ -34,26 +36,31 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Stash</h1>
-                    <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email </label>
+                    <h1 className="login_title">Stash</h1>
+                    {/* <h2>Please sign in</h2> */}
+                    <div>
+                        <label htmlFor="inputEmail"> Email:   </label>
                         <input type="email"
                             value={email}
                             onChange={evt => setEmail(evt.target.value)}
                             className="form-control"
                             placeholder="Email"
                             required autoFocus />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Let's see my stash!
+                    </div>
+                    <div>
+                        <button
+                         type="submit"
+                         className="btn-login">
+                            Let's see my Stash!
                         </button>
-                    </fieldset>
+                    </div>
                 </form>
             </section>
             
+            
         </main>
+
+        
     )
 }
 
