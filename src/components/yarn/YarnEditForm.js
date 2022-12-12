@@ -117,7 +117,7 @@ export const YarnEditForm = () => {
                 <div className="form-group">
                     <label htmlFor="name">Name:   </label>
                     <input
-                        required autoFocus
+                        required
                         type="text"
                         className="form-control"
                         placeholder="Name"
@@ -154,7 +154,7 @@ export const YarnEditForm = () => {
                 <div className="form-group">
                     <label htmlFor="yardAmount">Amount in Yards:   </label>
                     <input
-                        required autoFocus
+                        required
                         type="text"
                         className="form-control"
                         placeholder="Yard Amount"
@@ -191,7 +191,7 @@ export const YarnEditForm = () => {
                 <div className="form-group">
                     <label htmlFor="price">Price:   </label>
                     <input
-                        required autoFocus
+                        required
                         type="text"
                         className="form-control"
                         placeholder="Price"
@@ -211,7 +211,7 @@ export const YarnEditForm = () => {
                 <div className="form-group">
                     <label htmlFor="notes">Notes:   </label>
                     <input
-                        required autoFocus
+                        required
                         type="text"
                         className="form-control"
                         placeholder="Notes"
@@ -231,7 +231,7 @@ export const YarnEditForm = () => {
                 <div className="form-group">
                     <label htmlFor="picture">Picture:   </label>
                     <input
-                        required autoFocus
+                        required
                         type="img" //QUESTION: WHAT TYPE IS A PICTURE
                         className="form-control"
                         placeholder="Picture"
@@ -249,7 +249,7 @@ export const YarnEditForm = () => {
 
 
 
-        
+      <div className="both-buttons">  
         <button
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
             className="btn-primary">
@@ -262,6 +262,8 @@ export const YarnEditForm = () => {
             className="btn-delete">
             Delete Yarn
         </button>
+
+    </div>
 
     </form>
 }
