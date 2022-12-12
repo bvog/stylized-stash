@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-
+import  './Yarn.css'
 
 export const YarnEditForm = () => {
     // TODO: creat default state object
@@ -95,10 +95,10 @@ export const YarnEditForm = () => {
 
 
     return <form className="editForm">
-        <h2 className="editForm__title">Update Yarn Inventory</h2>
+        <h2 className="editForm__title">Update my Stash!</h2>
         <fieldset>
             <div className="form-group">
-                <label htmlFor="brandName">Brand Name: </label>
+                <label htmlFor="brandName">Brand Name:   </label>
                 <select
                 value={yarn.brandNameId}
                 onChange={(event) => {//On change, fires event which creates copy of yarn.  Copy. brandName Id = event.target.value which is brandNameId.  So, New yarn.brandNameId is now equal to the id that was selected 
@@ -115,7 +115,7 @@ export const YarnEditForm = () => {
 
         <fieldset> 
                 <div className="form-group">
-                    <label htmlFor="name">Name:</label>
+                    <label htmlFor="name">Name:   </label>
                     <input
                         required autoFocus
                         type="text"
@@ -135,7 +135,7 @@ export const YarnEditForm = () => {
 
         <fieldset>
             <div className="form-group">
-                <label htmlFor="type">Type:</label>
+                <label htmlFor="type">Type:   </label>
                 <select
                 value={yarn.typeId}
                 onChange={(event) => {//On change, fires event which creates copy of yarn.  Copy. brandName Id = event.target.value which is brandNameId.  So, New yarn.brandNameId is now equal to the id that was selected 
@@ -152,7 +152,7 @@ export const YarnEditForm = () => {
 
         <fieldset> 
                 <div className="form-group">
-                    <label htmlFor="yardAmount">Amount in Yards:</label>
+                    <label htmlFor="yardAmount">Amount in Yards:   </label>
                     <input
                         required autoFocus
                         type="text"
@@ -168,9 +168,11 @@ export const YarnEditForm = () => {
 
                         } />
                 </div>
-            </fieldset>
+        </fieldset>
 
-            <label htmlFor="color">Color: </label>
+        <fieldset>
+            <div className="form-group">
+            <label htmlFor="color">Color:   </label>
                 <select
                 value={yarn.colorId}
                 onChange={(event) => {//On change, fires event which creates copy of yarn.  Copy.brandNameId = event.target.value which is brandNameId.  So, New yarn.brandNameId is now equal to the id that the customer selected 
@@ -182,10 +184,12 @@ export const YarnEditForm = () => {
                         colors.map((color) => <option key={`color--${color.id}`} value={color.id}>{color.color}</option>)
                         }
                 </select>
+            </div>
+        </fieldset>
 
                 <fieldset> 
                 <div className="form-group">
-                    <label htmlFor="price">Price:</label>
+                    <label htmlFor="price">Price:   </label>
                     <input
                         required autoFocus
                         type="text"
@@ -205,7 +209,7 @@ export const YarnEditForm = () => {
 
             <fieldset> 
                 <div className="form-group">
-                    <label htmlFor="notes">Notes:</label>
+                    <label htmlFor="notes">Notes:   </label>
                     <input
                         required autoFocus
                         type="text"
@@ -225,7 +229,7 @@ export const YarnEditForm = () => {
 
             <fieldset> 
                 <div className="form-group">
-                    <label htmlFor="picture">Picture</label>
+                    <label htmlFor="picture">Picture:   </label>
                     <input
                         required autoFocus
                         type="img" //QUESTION: WHAT TYPE IS A PICTURE
@@ -248,14 +252,14 @@ export const YarnEditForm = () => {
         
         <button
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-            className="btn btn-primary">
+            className="btn-primary">
             Update Yarn
         </button>
 
 
         <button
             onClick={(clickEvent) => deleteButton(clickEvent)}
-            className="btn btn-primary">
+            className="btn-delete">
             Delete Yarn
         </button>
 

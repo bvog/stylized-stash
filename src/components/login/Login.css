@@ -1,1 +1,46 @@
-/* No CSS Added */
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap");
+
+
+
+
+.container--login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+
+}
+
+.form--control {
+    color: rgb(20, 56, 20);
+}
+
+/* .container--login {
+    background-image: url("photos/white_yarn_login_background.jpg");
+} */
+
+.login_title {
+    color: rgb(51, 87, 51);
+    /* font-family: "Comfortaa", Arial, sans-serif; */
+    margin: -5px;
+    /* font-family: "La Belle Aurore"; */
+    font-family: Lora;
+    font-size: 160px;
+    text-shadow: 1px 1px 1px rgb(C);
+}
+
+.btn-login {
+    display: flex;
+    justify-content: center;
+    /* align-self: self; */
+    margin-top: 2rem;
+    margin-right: 3rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 4px -1px grey;
+    /* background-color: rgb(88, 99, 88); */
+    background-color: rgb(51,87,51);
+    border: none;
+    color: white;
+    border-radius: 7px;
+}

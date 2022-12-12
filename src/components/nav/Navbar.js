@@ -1,6 +1,6 @@
 import { BonnieNav } from "./BonnieNav"
 import { FamilyNav } from "./FamilyNav"
-//import "./NavBar.css"
+import "./Navbar.css"
 
 export const NavBar = () => {
     const currentStashUser = localStorage.getItem("stash_user")
