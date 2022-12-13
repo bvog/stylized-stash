@@ -1,13 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap");
 
+/* .cover {
+    position: absolute;
+    margin: auto;
+    top: 0; 
+    left: 0; 
+      
+    /* Preserve aspet ratio */
+    /* min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+  } */ */
 
 
+
+.login-page {
+  background-image: url(./yarn_spools.jpg);
+  /* background-image: url("/components/yarn_spools.jpg"); */
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  
+}
 
 .container--login {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    height: 800px;
+    height: 800px; */
+    /* align-content: center;
+    justify-content: center; */
+
+    /* background-image: url('./photos/yarn_spools.jpg'); */
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
 
 }
 

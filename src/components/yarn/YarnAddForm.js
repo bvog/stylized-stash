@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom"
 import  './Yarn.css'
 
 export const YarnAddForm = () => {
-    /*
+
+     /*
         TODO: Add the correct default properties to the
         initial state object
     */
@@ -19,7 +20,7 @@ export const YarnAddForm = () => {
     })
     /*
         TODO: Use the useNavigation() hook so you can redirect
-        the user to the ticket list QUESTION: DO I NEED THIS???/WHAT DOES THIS DO??
+        the user to the ticket list
     */
 
     const [brandNames, setBrandNames] = useState([])
@@ -28,8 +29,7 @@ export const YarnAddForm = () => {
  
 
     const navigate = useNavigate() //Works like a refresh - allows you to navigate back to another page
-    // const currentYarnUser = localStorage.getItem("yarn_user")
-    // const yarnUserObject = JSON.parse(currentYarnUser)
+    
 
 
     useEffect(() => {
@@ -57,13 +57,8 @@ export const YarnAddForm = () => {
         event.preventDefault()
 
         // TODO: Create the object to be saved to the API
-/* 
-    "userId": 3,
-    "description": "Vero est adipisci sed natus quasi consectetur occaecati. Modi maxime sunt officia cumque. Vel at culpa. Sint accusamus deserunt dolorem qui.",
-    "emergency": true,
-    "dateCompleted": ""
-*/
-        const yarnToSendToAPI = {  //QUESTION: IS THIS CORRECT??
+
+        const yarnToSendToAPI = {
             brandNameId: yarn.brandNameId,
             name: yarn.name,
             typeId: yarn.typeId,
@@ -114,7 +109,7 @@ export const YarnAddForm = () => {
                 <div className="form-group">
                     <label htmlFor="name">Name:   </label>
                     <input
-                        required autoFocus
+                        required
                         type="text"
                         className="form-control"
                         placeholder=""
@@ -203,7 +198,7 @@ export const YarnAddForm = () => {
                 <div className="form-group">
                     <label htmlFor="yardAmount">Amount in Yards:   </label>
                     <input
-                        required autoFocus
+                        required
                         type="text"
                         className="form-control"
                         placeholder=""
@@ -241,7 +236,7 @@ export const YarnAddForm = () => {
                 <div className="form-group">
                     <label htmlFor="price">Price:   </label>
                     <input
-                        required autoFocus
+                        required
                         type="text"
                         className="form-control"
                         placeholder=""
@@ -261,7 +256,7 @@ export const YarnAddForm = () => {
                 <div className="form-group">
                     <label htmlFor="notes">Notes:   </label>
                     <input
-                        required autoFocus
+                        required
                         type="text"
                         className="form-control"
                         placeholder=""
@@ -281,7 +276,7 @@ export const YarnAddForm = () => {
                 <div className="form-group">
                     <label htmlFor="picture">Picture:   </label>
                     <input
-                        required autoFocus
+                        required
                         type="img" //QUESTION: WHAT TYPE IS A PICTURE
                         className="form-control"
                         placeholder=""

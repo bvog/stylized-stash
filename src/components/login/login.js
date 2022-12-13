@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import './Login.css'
-// import background from "./photos/white_yarn_login_background.jpg"
+// import background from "/photos/yarn_spools.jpg"
 
 
 export const Login = () => {
@@ -33,7 +33,9 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
+    <section className="login-page">
+        {/* <img className="cover"/> */}
+        <article className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1 className="login_title">Stash</h1>
@@ -58,9 +60,9 @@ export const Login = () => {
             </section>
             
             
-        </main>
+        </article>
 
-        
+    </section>  
     )
 }
 
