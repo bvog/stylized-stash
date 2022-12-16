@@ -57,6 +57,7 @@ export const YarnAddForm = () => {
         event.preventDefault()
 
         // TODO: Create the object to be saved to the API
+if (yarn.brandNameId > 0 && yarn.name && yarn.typeId > 0 && yarn.yardAmount > 0 && yarn.colorId > 0 && yarn.notes && yarn.price > 0 && yarn.img ) {
 
         const yarnToSendToAPI = {
             brandNameId: yarn.brandNameId,
@@ -82,7 +83,10 @@ export const YarnAddForm = () => {
             .then(response => response.json())
             .then(() => { //Directing user back to ticket list to see new ticket that has been created
                 navigate("/inventory") //navigates you back to inventory page and automatically refreshes screen so don't have to press refresh
-            })
+            })} else {
+
+              window.alert("Please fill out the form!")
+            }
     }
 
     return ( //Two form fields, one for description and a checkbox for emergencies.  Each w/in a <fieldset></fieldset>

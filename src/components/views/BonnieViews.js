@@ -2,8 +2,9 @@ import { Outlet, Route, Routes } from "react-router-dom"
 import { YarnList } from "../yarn/YarnList"
 import { YarnAddForm } from "../yarn/YarnAddForm"
 import { YarnEditForm } from "../yarn/YarnEditForm"
-
-
+import { ProjectList } from "../projects/ProjectList"
+import { ProjectEditForm } from "../projects/ProjectEditForm"
+import { ProjectAddForm } from "../projects/ProjectAddForm"
 
 
 
@@ -19,7 +20,13 @@ export const BonnieViews = () => {
 
                 <Route path="inventory" element={ <YarnList/> } />
 
-                <Route path="inventory/update/:yarnId" element={ <YarnEditForm /> } />                
+                <Route path="inventory/update/:yarnId" element={ <YarnEditForm /> } />   
+
+                <Route path="projects" element={ <ProjectList/> } />
+
+                <Route path="projects/update/:projectId" element={ <ProjectEditForm /> } />
+
+                <Route path="projects/create" element={ <ProjectAddForm /> } />             
                 
             </Route>
         </Routes>

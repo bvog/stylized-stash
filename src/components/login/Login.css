@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap");
 
+body {
+    height: 100%
+}
+
 /* .cover {
     position: absolute;
     margin: auto;
@@ -7,21 +11,19 @@
     left: 0; 
       
     /* Preserve aspet ratio */
-    /* min-width: 100%;
+/* min-width: 100%;
     min-height: 100%;
     z-index: -1;
-  } */ */
+  } */
+*/ .login-page {
+    /* usually put below in the index.css */
+    /* background-image: url(./yarn_spools.jpg); */
+    /* background-image: url("https://res.cloudinary.com/dxyrrqfpk/image/upload/v1671066061/Website%20Photos/Current_Project_dkcusy.jpg"); */
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 
-
-
-.login-page {
-  background-image: url(./yarn_spools.jpg);
-  /* background-image: url("/components/yarn_spools.jpg"); */
-  background-size: 100%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  
 }
 
 .container--login {
@@ -52,15 +54,13 @@
     background-image: url("photos/white_yarn_login_background.jpg");
 } */
 
-.login_title {
+/* .login_title {
     color: rgb(51, 87, 51);
-    /* font-family: "Comfortaa", Arial, sans-serif; */
     margin: -5px;
-    /* font-family: "La Belle Aurore"; */
     font-family: Lora;
     font-size: 160px;
     text-shadow: 1px 1px 1px rgb(C);
-}
+} */
 
 .btn-login {
     display: flex;
@@ -72,8 +72,32 @@
     padding: 0.5rem;
     box-shadow: 2px 2px 4px -1px grey;
     /* background-color: rgb(88, 99, 88); */
-    background-color: rgb(51,87,51);
+    background-color: rgb(51, 87, 51);
     border: none;
     color: white;
     border-radius: 7px;
+}
+
+.login-background-picture {
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    max-height: 100%;
+
+    object-fit: cover;
+    opacity: 20%;
+    height: 100%;
+}
+
+
+.login_title {
+    color: rgb(51, 87, 51);
+    margin: -5px;
+    font-family: Lora;
+    font-size: 160px;
+    text-shadow: 1px 1px 1px rgb(C);
 }
