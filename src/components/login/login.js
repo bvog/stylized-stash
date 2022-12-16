@@ -34,8 +34,13 @@ export const Login = () => {
 
     return (
     <section className="login-page">
-        {/* <img className="cover"/> */}
+
+    <div >
+        <img className="login-background-picture" src="https://res.cloudinary.com/dxyrrqfpk/image/upload/v1671116120/Website%20Photos/yarn_spools_vo7ais.jpg"/>
+    </div>
+        
         <article className="container--login">
+            
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1 className="login_title">Stash</h1>
@@ -59,9 +64,9 @@ export const Login = () => {
                 </form>
             </section>
             
-            
         </article>
 
+    
     </section>  
     )
 }

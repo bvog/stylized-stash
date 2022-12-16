@@ -62,10 +62,6 @@ form {
     padding: 1rem;
   }
 
-  /* .form-group {
-    margin: .5rem
-  } */
-
   form input {
     font-size: 1rem;
     padding: 0.10rem;
@@ -92,10 +88,22 @@ form {
     border-radius: 7px;
   }
 
+  .project-btn-add {
+    align-self: flex;
+    margin-left: 1rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 4px -1px grey;
+    background-color: rgb(88, 99, 88);
+    border: none;
+    color: white;
+    border-radius: 7px;
+  }
+
   .btn-delete {
     align-self: flex;
     /* margin-right: -25rem; */
-    margin-top: 5px;
+    /* margin-top: 5px; */
     font-size: 1rem;
     padding: 0.5rem;
     box-shadow: 2px 2px 4px -1px grey;
@@ -116,12 +124,12 @@ form {
     border: none;
     color: white;
     border-radius: 7px;
+    margin-bottom: 25px;
+    margin-top: 10px;
   }
 
   .editForm__title {
-    color: rgb(51, 87, 51);
-    /* font-family: "Comfortaa", Arial, sans-serif; */
-    
+    color: rgb(51, 87, 51);   
     font-family: "La Belle Aurore";
     font-size: 60px
   }
@@ -147,26 +155,81 @@ form {
   .list_of_yarn {
     display: flex;
     flex-wrap: wrap;
+    /* width: 50%; */
     /* justify-content: space-around; */
   }
 
   .individual_yarn {
     display: flex;
-    /* flex-direction: row; */
+    flex-direction: row;
     flex-flow:  wrap;
-    justify-content: flex-start;
+    /* justify-content: space-between; */
     width: 50%;
+
   }
 
   .description-list {
-    display: flex;
-    flex-direction: column;
-    margin-top: 14px;
+    /* display: flex;
+    flex-direction: column; */
+     margin-top: 14px;
+    /* flex: 1; */
+    /* margin: 10px; */
     
   }
+
+  .description-list-words {
+    margin-top: 30px;
+  }
+  
+ .projects-description-list-words {
+  margin-top: 20px;
+  width: 60%;
+ }
 
 .both-buttons {
     display: flex;
     flex-direction: row;
     align-content: center;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.list-item {
+  display: flex;
+  flex-flow: wrap;
+  width: 70%;
+}
+
+.btn-project-update {
+    /* align-self: flex; */
+    margin-right: 670px;
+    font-size: 1rem;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 4px -1px grey;
+    background-color: rgb(88, 99, 88);
+    border: none;
+    color: white;
+    border-radius: 7px;
+
+}
+
+.btn-project-delete {
+  /* align-self: flex; */
+    /* margin-right: -25rem; */
+    margin-top: 5px;
+    font-size: 1rem;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 4px -1px grey;
+    background-color: rgb(223, 69, 69);
+    border: none;
+    color: white;
+    border-radius: 7px;
+}
+
+.both-project-buttons {
+  /* display: flex;
+  flex-direction: row; */
+  /* align-content: center; */
+  margin-bottom: 25px;
+  margin-top: 10px;
 }

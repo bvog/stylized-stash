@@ -7,6 +7,44 @@ import  './Yarn.css'
 export const YarnList = () => {
 
     const [yarns, setYarns] = useState([])
+   
+//     //create another state to filter yarns:
+//     const [filteredYarns, setFilteredYarns] = useState([])
+
+//     //create another state to hold brand names
+//     // const [gistYarns, setGistYarns] = useState([])
+//     // const
+   
+//     //to filter by brandname first get state:
+//     const [brandNames, setBrandNames] = useState(false)
+
+//     //to filter set useEffect:
+//     useEffect (
+//       () => {
+//         if (brandNames) {
+//           const filteredGist = filteredYarns.filter(yarn => 
+//             {return yarn.brandNameId === 1})
+//                 setFilteredYarns(filteredGist)
+//         }
+//         // else {
+//         //   const filteredBrassard = filteredYarns.filter (yarn =>
+//         //     {return yarn.brandNameId === 2})
+//         //     setFilteredYarns(filteredBrassard)
+//         // } 
+//         else { //last else resets for all of the yarns
+//           setFilteredYarns(yarns)
+//         }
+//       }, [brandNames]
+//     )
+
+// //to filter create another useEffect:
+//       useEffect (
+//         () => {
+//           setFilteredYarns(yarns) 
+//         }, 
+//         [yarns])
+      
+
 
     useEffect (
         () => {
@@ -26,14 +64,22 @@ export const YarnList = () => {
       <div className="addTitle">
         <h2 className="yarnList_title">My Stash!</h2>
       </div>
+
+{/* <button onClick={() => {setBrandNames(true)}}
+    className="filter-yarn-btn">
+    Sort by Gist Yarns
+</button> */}
+
+
+
         <article className="list_of_yarn">
             {
-                yarns.map(
+                yarns.map( //Changed from yarns to filteredYarns for filtering by brand name
                     (yarn) => {
                         return <section className="individual_yarn" key={yarn.id}>
                             
                             
-                            <div className="individual_picture" key={yarn.id}>                             
+                          <div className="description-list" key={yarn.id}>                             
                             <Link 
                                 className="navbar__link"
                                 to={`update/${yarn.id}`}>
@@ -43,17 +89,16 @@ export const YarnList = () => {
                                     className="picture-img"
                                     key={yarn.id}/>
                             </Link>
-                            </div>
-                                                     
+                          </div>
                             
-                          <div className="description-list">
+                          <div className="description-list-words">
                             <div>Brand Name: {yarn.brandName.brandName}</div>
                             <div>Name: {yarn.name}</div>
                             <div>Type: {yarn.type.type}</div>
                             <div>Color: {yarn.color.color}</div>
                             <div>Yard Amount: {yarn.yardAmount}</div>
                             <div>Price: ${yarn.price}</div>
-                            <div>Notes: {yarn.notes}</div>                         
+                            <div className="list-item">Notes: {yarn.notes}</div>                         
                           </div> 
 
                         </section>

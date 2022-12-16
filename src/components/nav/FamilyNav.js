@@ -6,6 +6,10 @@ export const FamilyNav = () => {
 
     return (
         <ul className="navbar">
+
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/projects">Projects</Link>
+            </li>
                         
 
 
