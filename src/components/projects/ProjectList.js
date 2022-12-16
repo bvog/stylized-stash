@@ -25,6 +25,9 @@ export const ProjectList = () => {
     const handleSaveButtonClick = (clickEvent) => { //function tied to button in return below
         navigate("/projects/create")
     }
+
+    const currentStashUser = localStorage.getItem("stash_user")
+    const stashUserObject = JSON.parse(currentStashUser)
    
     return<>
       <div className="addTitle">
@@ -64,16 +67,18 @@ export const ProjectList = () => {
             }
         </article>
 
-        <button
-            onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-            className="project-btn-add">
-            Add a Project
-        </button>
+{stashUserObject.administrator ? (
+    <button
+    onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+    className="project-btn-add">
+    Add a Project
+</button>
+) : (
+    <></>
+)
+    }
     
-    
-    
-    
-    
+   
     
     
     
